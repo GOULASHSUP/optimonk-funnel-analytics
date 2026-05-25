@@ -6,10 +6,6 @@ defineProps({
     type: Object,
     required: true,
   },
-  stepNumber: {
-    type: Number,
-    required: true,
-  },
   isWorstStep: {
     type: Boolean,
     default: false,
@@ -21,17 +17,15 @@ defineProps({
   <article
     class="rounded-2xl border bg-white p-5 shadow-sm"
     :class="
-      isWorstStep ? 'border-rose-300 ring-2 ring-rose-100' : 'border-slate-200'
+      isWorstStep ? 'border-rose-300 ring-2 ring-rose-100' : 'border-zinc-200'
     "
   >
     <div class="flex items-start justify-between gap-4">
       <div>
         <div class="flex flex-wrap items-center gap-2">
-          <span
-            class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600"
-          >
-            Step {{ stepNumber }}
-          </span>
+          <h3 class="text-lg font-semibold text-zinc-900">
+            {{ step.name }}
+          </h3>
 
           <span
             v-if="isWorstStep"
@@ -41,11 +35,7 @@ defineProps({
           </span>
         </div>
 
-        <h3 class="mt-3 text-lg font-semibold text-slate-900">
-          {{ step.name }}
-        </h3>
-
-        <p class="mt-2 text-sm text-slate-500">
+        <p class="mt-2 text-sm text-zinc-500">
           {{ step.description }}
         </p>
       </div>
@@ -59,13 +49,13 @@ defineProps({
 
     <div class="mt-5">
       <div class="mb-2 flex items-center justify-between text-sm">
-        <span class="font-medium text-slate-600">Step conversion</span>
-        <span class="font-semibold text-slate-900">
+        <span class="font-medium text-zinc-600">Step conversion</span>
+        <span class="font-semibold text-zinc-900">
           {{ formatPercent(step.conversionRate) }}
         </span>
       </div>
 
-      <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+      <div class="h-3 overflow-hidden rounded-full bg-zinc-100">
         <div
           class="h-full rounded-full"
           :class="isWorstStep ? 'bg-rose-500' : 'bg-indigo-500'"
@@ -73,53 +63,44 @@ defineProps({
         ></div>
       </div>
 
-      <p class="mt-2 text-xs text-slate-500">
+      <p class="mt-2 text-xs text-zinc-500">
         {{ formatNumber(step.proceeds) }} continued,
         {{ formatNumber(step.dropOffCount) }} dropped off.
       </p>
     </div>
 
-    <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-      <div class="rounded-xl bg-slate-50 p-3">
-        <p class="text-xs font-medium uppercase tracking-wide text-slate-500">
+    <div class="mt-5 grid gap-3 sm:grid-cols-3">
+      <div class="rounded-xl bg-zinc-50 p-3">
+        <p class="text-xs font-medium uppercase tracking-wide text-zinc-500">
           Views
         </p>
-        <p class="mt-1 text-lg font-semibold text-slate-900">
+        <p class="mt-1 text-lg font-semibold text-zinc-900">
           {{ formatNumber(step.views) }}
         </p>
       </div>
 
-      <div class="rounded-xl bg-slate-50 p-3">
-        <p class="text-xs font-medium uppercase tracking-wide text-slate-500">
+      <div class="rounded-xl bg-zinc-50 p-3">
+        <p class="text-xs font-medium uppercase tracking-wide text-zinc-500">
           Continued
         </p>
-        <p class="mt-1 text-lg font-semibold text-slate-900">
+        <p class="mt-1 text-lg font-semibold text-zinc-900">
           {{ formatNumber(step.proceeds) }}
-        </p>
-      </div>
-
-      <div class="rounded-xl bg-slate-50 p-3">
-        <p class="text-xs font-medium uppercase tracking-wide text-slate-500">
-          Step conversion
-        </p>
-        <p class="mt-1 text-lg font-semibold text-slate-900">
-          {{ formatPercent(step.conversionRate) }}
         </p>
       </div>
 
       <div
         class="rounded-xl p-3"
-        :class="isWorstStep ? 'bg-rose-50' : 'bg-slate-50'"
+        :class="isWorstStep ? 'bg-rose-50' : 'bg-zinc-50'"
       >
         <p
           class="text-xs font-medium uppercase tracking-wide"
-          :class="isWorstStep ? 'text-rose-600' : 'text-slate-500'"
+          :class="isWorstStep ? 'text-rose-600' : 'text-zinc-500'"
         >
           Drop-off
         </p>
         <p
           class="mt-1 text-lg font-semibold"
-          :class="isWorstStep ? 'text-rose-700' : 'text-slate-900'"
+          :class="isWorstStep ? 'text-rose-700' : 'text-zinc-900'"
         >
           {{ formatPercent(step.dropOffRate) }}
         </p>

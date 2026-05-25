@@ -19,7 +19,7 @@ function selectCampaign(campaignId) {
 </script>
 
 <template>
-  <main class="min-h-screen bg-slate-50 px-6 py-10 text-slate-900">
+  <main class="min-h-screen bg-zinc-50 px-6 py-10 text-zinc-900">
     <div class="mx-auto max-w-7xl">
       <header class="mb-8">
         <p
@@ -32,13 +32,13 @@ function selectCampaign(campaignId) {
           Popup campaign performance
         </h1>
 
-        <p class="mt-4 max-w-2xl text-lg text-slate-600">
-          Help marketers understand where visitors drop off inside multi-step
-          popup campaigns.
+        <p class="mt-4 max-w-2xl text-lg text-zinc-600">
+          Get a better overview of where your visitors drop off and how to
+          improve your conversion rates.
         </p>
       </header>
 
-      <div class="grid gap-6 lg:grid-cols-[360px_1fr]">
+      <div class="grid items-start gap-6 lg:grid-cols-[360px_1fr]">
         <CampaignList
           :campaigns="campaigns"
           :selected-campaign-id="selectedCampaignId"
